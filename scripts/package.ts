@@ -3,13 +3,15 @@ import { fileURLToPath } from 'node:url'
 import { createWriteStream, existsSync, mkdirSync } from 'node:fs'
 import archiver from 'archiver'
 
-import { name, version } from '../package.json'
+import config from '../config'
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url))
 
 const distPath = join(__dirname, '..', 'dist')
 const packPath = join(__dirname, '..', 'pack')
-const outputZipFile = join(packPath, `${name}-v${version}.mcaddon`)
+const supportVersion = config.support_version.join('.').replace(/0$/, 'x')
+const fileName = `${config.name}-v${config.version}-v${supportVersion}.mcaddon`
+const outputZipFile = join(packPath, fileName)
 
 if (!existsSync(distPath)) {
   mkdirSync(distPath)
