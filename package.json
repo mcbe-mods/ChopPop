@@ -1,0 +1,33 @@
+{
+  "name": "chop-pop",
+  "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "dev": "tsc && vite build --watch --mode development",
+    "build": "tsc && vite build && tsm scripts/package.ts",
+    "preview": "vite preview",
+    "postinstall": "tsm scripts/preinstall.ts",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "dependencies": {
+    "@mcbe-mods/utils": "^0.1.1"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^2.25.1",
+    "@minecraft/server": "^1.11.0",
+    "@minecraft/vanilla-data": "^1.20.80",
+    "@types/archiver": "^6.0.2",
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^20.12.7",
+    "archiver": "^7.0.1",
+    "chokidar": "^3.6.0",
+    "eslint": "^8.57.0",
+    "fs-extra": "^11.2.0",
+    "tsm": "^2.3.0",
+    "typescript": "^5.2.2",
+    "vite": "^5.2.0"
+  }
+}

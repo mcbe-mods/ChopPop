@@ -1,0 +1,77 @@
+{
+    "hud_title_text/title_frame/title": {
+        "modifications": [
+            {
+                "array_name": "bindings",
+                "operation": "insert_back",
+                "value": {
+                    "binding_type": "view",
+                    "source_property_name": "(not (('%.5s' * #text) = $CC_PREFIX))",
+                    "target_property_name": "#visible"
+                }
+            }
+        ]
+    },
+    "axe_panel": {
+        "type": "panel",
+        "controls": [
+            {
+                "player_hud_axe_icon": {
+                    "type": "image",
+                    "size": [
+                        16,
+                        16
+                    ],
+                    "texture": "#texture",
+                    "allow_debug_missing_texture": false,
+                    "color": [
+                        128,
+                        128,
+                        128,
+                        0.85
+                    ],
+                    "offset": [
+                        16,
+                        0
+                    ],
+                    "uv_size": [
+                        16,
+                        16
+                    ],
+                    "uv": [
+                        80,
+                        0
+                    ],
+                    "bindings": [
+                        {
+                            "binding_name": "#hud_title_text_string"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "(not (#text = $CC_HIDE_FULL))",
+                            "target_property_name": "#visible"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "(#hud_title_text_string - $CC_PREFIX)",
+                            "target_property_name": "#texture"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "root_panel": {
+        "modifications": [
+            {
+                "array_name": "controls",
+                "operation": "insert_front",
+                "value": [
+                    {
+                        "axe_panel@hud.axe_panel": {}
+                    }
+                ]
+            }
+        ]
+    }
+}
