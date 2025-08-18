@@ -224,16 +224,17 @@ function treeCut(
 }
 
 async function clearLeaves(dimension: Dimension, locations: WoodLocations) {
-  const visited = new Set()
-  const batchSize = 27 // Size of each batch
+  const checkBlocks = new Set()
+  const batchSize = 5 // Size of each batch
   let counter = 0
-  const leavesArray = [...locations.leaves]
+  const queue = [...locations.leaves].sort((a, b) => a.y - b.y)
 
-  for (const leaves of leavesArray) {
-    const pos = JSON.stringify(leaves)
+  while (queue.length > 0) {
+    const leaves = queue.shift()!
+    const key = `${leaves.x},${leaves.y},${leaves.z}`
 
-    if (visited.has(pos)) continue
-    visited.add(pos)
+    if (checkBlocks.has(key)) continue
+    checkBlocks.add(key)
 
     const block = dimension.getBlock(leaves)
 
@@ -244,9 +245,10 @@ async function clearLeaves(dimension: Dimension, locations: WoodLocations) {
       })
       if (isWood) continue
 
-      leavesArray.push(...getRadiusRange(block.location))
+      queue.push(...getRadiusRange(block.location))
 
       if (counter === batchSize) {
+        queue.sort((a, b) => a.y - b.y)
         // Add a short delay to allow the event loop to execute the toggle
         await new Promise<void>((resolve) => system.runTimeout(resolve))
         counter = 0
@@ -264,7 +266,7 @@ world.beforeEvents.playerBreakBlock.subscribe((e) => {
   try {
     const { dimension, player, block } = e
     const { location, typeId } = block
-    console.warn('typeId', typeId)
+
     const mainHand = getPlayerMainhand(player)
     const item = mainHand.getItem()
     if (item) {
