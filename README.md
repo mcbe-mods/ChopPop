@@ -14,6 +14,7 @@
 ## ✨ Features
 
 - Automatically detects full tree structures
+- Supports fast leaf decay (leaves begin to naturally decay immediately after chopping)
 - Visual indicator: an axe icon appears next to your crosshair when a tree is detected (prevents accidental house destruction)
 - Consumes axe durability and supports the "Unbreaking" enchantment; stops chopping when durability reaches 1
 - Will not chop stripped logs

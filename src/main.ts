@@ -70,9 +70,9 @@ function isCuttableBlock(player: Player, block: Block) {
   const typeId = block.type.id
   try {
     return (
-      isWoodBlock(block) &&
       player.isSneaking &&
       getPlayerMainhand(player)?.hasTag('is_axe') &&
+      isWoodBlock(block) &&
       isTree(player.dimension, block.location, typeId)
     )
   } catch (error) {
@@ -262,29 +262,28 @@ async function clearLeaves(dimension: Dimension, locations: WoodLocations) {
   }
 }
 
-world.beforeEvents.playerBreakBlock.subscribe((e) => {
+world.beforeEvents.playerBreakBlock.subscribe((event) => {
   try {
-    const { dimension, player, block } = e
+    const { dimension, player, block } = event
     const { location, typeId } = block
 
     const mainHand = getPlayerMainhand(player)
     const item = mainHand.getItem()
     if (item) {
-      const itemDurability = item.getComponent(
-        ItemDurabilityComponent.componentId
-      ) as ItemDurabilityComponent
+      const cid = ItemDurabilityComponent.componentId
+      const itemDurability = item.getComponent(cid) as ItemDurabilityComponent
       if (itemDurability.damage === itemDurability.maxDurability) return
-      if (isWoodBlock(block) && isCuttableBlock(player, block)) {
-        e.cancel = true
+
+      if (isCuttableBlock(player, block)) {
+        event.cancel = true
 
         const locations = getWoodLocations(dimension, location, typeId)
         if (!locations.woods.length) return
 
         const survivalPlayer = isSurvivalPlayer(dimension, player)
-        system.runTimeout(async () => {
+        system.runTimeout(() => {
           if (survivalPlayer) consumeDurability(player, locations)
           treeCut(location, dimension, locations)
-
           clearLeaves(dimension, locations)
         })
       }
