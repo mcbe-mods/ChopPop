@@ -2,7 +2,7 @@ import { join } from 'node:path'
 import process from 'node:process'
 import { fileURLToPath } from 'node:url'
 import chokidar from 'chokidar'
-import { copy, copySync, emptyDir, emptyDirSync, remove } from 'fs-extra/esm'
+import { copy, emptyDir, remove } from 'fs-extra/esm'
 import { name } from '../package.json'
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url))
@@ -14,26 +14,30 @@ if (!LOCALAPPDATA) {
   console.log(`none "LOCALAPPDATA"`)
   process.exit(0)
 }
-const watchDir = join(__dirname, '..', 'dist')
+const watchDistDir = join(__dirname, '..', 'dist')
+const watchPublicDir = join(__dirname, '..', 'public')
+const watchDir = [watchDistDir, watchPublicDir]
 
-const gamePath = join(LOCALAPPDATA, '/Packages/Microsoft.MinecraftUWP_8wekyb3d8bbwe/LocalState/games/com.mojang')
+const gamePath = join(
+  LOCALAPPDATA,
+  '/Packages/Microsoft.MinecraftUWP_8wekyb3d8bbwe/LocalState/games/com.mojang'
+)
 const development_behavior_packs = join(gamePath, 'development_behavior_packs')
 const development_resource_packs = join(gamePath, 'development_resource_packs')
 
-const srcDirB = join(watchDir, 'behavior_pack')
-const srcDirR = join(watchDir, 'resource_pack')
+const srcDirB = join(watchDistDir, 'behavior_pack')
+const srcDirR = join(watchDistDir, 'resource_pack')
 const destDirB = join(development_behavior_packs, name)
 const destDirR = join(development_resource_packs, name)
 
 async function initialBuild() {
   try {
-    await new Promise(r => setTimeout(r, 1000))
+    await new Promise((r) => setTimeout(r, 1000))
     await Promise.all([emptyDir(destDirB), emptyDir(destDirR)])
     await Promise.all([copy(srcDirB, destDirB), copy(srcDirR, destDirR)])
     // eslint-disable-next-line no-console
     console.log('Initial build completed.')
-  }
-  catch (err) {
+  } catch (err) {
     console.error('Initial build failure:', err)
   }
 }
@@ -52,8 +56,7 @@ async function updateFileOrDir(srcPath: string) {
 
     // eslint-disable-next-line no-console
     console.log(`Updated: ${srcPath}`)
-  }
-  catch (err) {
+  } catch (err) {
     console.error(`Update failed for ${srcPath}:`, err)
   }
 }
@@ -72,8 +75,7 @@ async function removeFileOrDir(srcPath: string) {
 
     // eslint-disable-next-line no-console
     console.log(`Removed: ${srcPath}`)
-  }
-  catch (err) {
+  } catch (err) {
     console.error(`Remove failed for ${srcPath}:`, err)
   }
 }
@@ -85,8 +87,8 @@ export async function startSync() {
     ignoreInitial: true,
     awaitWriteFinish: {
       stabilityThreshold: 100,
-      pollInterval: 10,
-    },
+      pollInterval: 10
+    }
   })
 
   watcher
@@ -95,7 +97,7 @@ export async function startSync() {
     .on('addDir', updateFileOrDir)
     .on('unlink', removeFileOrDir)
     .on('unlinkDir', removeFileOrDir)
-    .on('error', error => console.error(`Watcher error: ${error}`))
+    .on('error', (error) => console.error(`Watcher error: ${error}`))
     .on('ready', () => {
       // eslint-disable-next-line no-console
       console.log('Initial scan complete. Ready for changes')

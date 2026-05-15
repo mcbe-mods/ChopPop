@@ -1,0 +1,14 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.chop_pop.selected_block.edges": {
+      "animation_length": 0.05,
+      "loop": true,
+      "bones": {
+        "all": {
+          "rotation": [0, 180, 0]
+        }
+      }
+    }
+  }
+}

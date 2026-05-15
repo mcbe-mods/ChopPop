@@ -1,0 +1,40 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "chop_pop:selected_block",
+      "materials": {
+        "default": "glow_in_walls"
+      },
+      "textures": {
+        "default": "textures/entity/chop_pop_selected_block/selected_block"
+      },
+      "geometry": {
+        "default": "geometry.chop_pop.selected_block"
+      },
+      "scripts": {
+        "scale": "1.005",
+        "initialize": [
+          "v.show = false;",
+          "v.visible_ne = 0;",
+          "v.visible_nw = 0;",
+          "v.visible_se = 0;",
+          "v.visible_sw = 0;",
+          "v.visible_bn = 0;",
+          "v.visible_bs = 0;",
+          "v.visible_bw = 0;",
+          "v.visible_be = 0;",
+          "v.visible_tn = 0;",
+          "v.visible_ts = 0;",
+          "v.visible_tw = 0;",
+          "v.visible_te = 0;"
+        ]
+      },
+      "render_controllers": [
+        {
+          "controller.render.chop_pop.selected_block": "v.show"
+        }
+      ]
+    }
+  }
+}
