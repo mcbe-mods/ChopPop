@@ -7,7 +7,7 @@ export interface IConfig {
 
 export default {
   name: 'Chop-Pop',
-  version: '1.0.1',
+  version: '1.0.2',
   min_support_version: [1, 21, 80],
   max_support_version: 'latest'
 } as IConfig
