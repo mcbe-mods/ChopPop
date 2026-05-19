@@ -1,8 +1,0 @@
-{
-  "materials": {
-    "version": "1.0.0",
-    "glow_in_walls:entity_emissive_alpha": {
-      "depthFunc": "Always"
-    }
-  }
-}

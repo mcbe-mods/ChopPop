@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url'
 import chokidar from 'chokidar'
 import { copy, emptyDir, remove } from 'fs-extra/esm'
 import { name } from '../package.json'
+import { existsSync } from 'node:fs'
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url))
 
@@ -34,7 +35,14 @@ async function initialBuild() {
   try {
     await new Promise((r) => setTimeout(r, 1000))
     await Promise.all([emptyDir(destDirB), emptyDir(destDirR)])
-    await Promise.all([copy(srcDirB, destDirB), copy(srcDirR, destDirR)])
+    const copys = []
+    if (existsSync(srcDirB)) {
+      copys.push(copy(srcDirB, destDirB))
+    }
+    if (existsSync(srcDirR)) {
+      copys.push(copy(srcDirR, destDirR))
+    }
+    await Promise.all(copys)
     // eslint-disable-next-line no-console
     console.log('Initial build completed.')
   } catch (err) {

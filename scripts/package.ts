@@ -9,8 +9,12 @@ const __dirname = fileURLToPath(new URL('.', import.meta.url))
 
 const distPath = join(__dirname, '..', 'dist')
 const packPath = join(__dirname, '..', 'pack')
-const supportVersion = config.support_version.join('.').replace(/0$/, 'x')
-const fileName = `${config.name}-v${config.version}-v${supportVersion}.mcaddon`
+const minSupportVersion = `v${config.min_support_version.join('.')}`
+const maxSupportVersion =
+  typeof config.max_support_version === 'string'
+    ? config.max_support_version
+    : `v${config.max_support_version.join('.')}`
+const fileName = `${config.name}-v${config.version}-${minSupportVersion}-${maxSupportVersion}.mcaddon`
 const outputZipFile = join(packPath, fileName)
 
 if (!existsSync(distPath)) {
