@@ -3,10 +3,10 @@
   "header": {
     "description": "pack.description",
     "name": "pack.name",
-    "uuid": "97e3fa5d-7f56-4134-bf3e-976ab03eb8a9",
+    "uuid": "73274707-42ba-4d40-a109-24ae8c0482fb",
     "version": [
-      1,
       0,
+      1,
       0
     ],
     "min_engine_version": [
@@ -17,16 +17,15 @@
   },
   "modules": [
     {
-      "description": "JavaScript module code",
-      "language": "javascript",
       "type": "script",
-      "uuid": "1365b34a-f620-4f49-9cd3-eec2f00bfb6c",
+      "language": "javascript",
+      "uuid": "d738d86b-6ed5-4dcc-8167-3d125763a226",
+      "entry": "scripts/main.js",
       "version": [
         1,
         0,
         0
-      ],
-      "entry": "scripts/main.js"
+      ]
     }
   ],
   "dependencies": [
@@ -39,7 +38,7 @@
     "authors": [
       "Lete114"
     ],
-    "license": "GPL-2.0",
+    "license": "MIT",
     "url": "https://github.com/mcbe-mods"
   }
 }

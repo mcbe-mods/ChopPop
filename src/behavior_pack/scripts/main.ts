@@ -1,4 +1,4 @@
-import { calcGameTicks, getRadiusRange, splitGroups } from '@mcbe-mods/utils'
+import { calcGameTicks, getRadiusRange, ms2ticks, splitGroups } from '@mcbe-mods/utils'
 import type { Block, Dimension, Player, Vector3 } from '@minecraft/server'
 import {
   BlockPermutation,
@@ -13,8 +13,10 @@ import {
   world
 } from '@minecraft/server'
 import { MinecraftBlockTypes } from '@minecraft/vanilla-data'
-import config from '../config'
+import { Log } from '@mcbe-mods/log'
 import { edgeRender } from './ipc'
+
+const log = new Log('ChopPop')
 
 const includes = {
   tags: ['wood'],
@@ -196,7 +198,7 @@ function consumeDurability(player: Player, locations: WoodLocations) {
         : damage
     mainHand.setItem(item)
   } catch (error) {
-    console.warn('set durability error:', error)
+    log.warn('set durability error:', error)
   } finally {
     system.runTimeout(() => {
       if (mainHand) {
@@ -307,18 +309,16 @@ world.beforeEvents.playerBreakBlock.subscribe((event) => {
           edgeRenderMap.set(player.id, false)
           edgeRender
             .remove([player.id])
-            .catch((err) => console.error(`${config.name}: ${err.message}`))
+            .catch((err) => log.error(err.message))
           clearLeaves(dimension, locations)
         })
       }
     }
   } catch (error) {
     const err = error as any
-    /* eslint-disable no-console */
-    console.log('error', err)
-    console.log('error.stack', err && err.stack)
-    console.log('error.message', err && err.message)
-    /* eslint-enable no-console */
+    log.error(err)
+    log.error(err && err.stack)
+    log.error(err && err.message)
   }
 })
 
@@ -347,13 +347,13 @@ world.afterEvents.entityHitBlock.subscribe((event) => {
   )
   edgeRender
     .create([id], locations.woods)
-    .catch((err) => console.error(`${config.name}: ${err.message}`))
+    .catch((err) => log.error(err.message))
 
   system.runTimeout(() => {
     edgeRenderMap.set(id, false)
 
     edgeRender
       .remove([id])
-      .catch((err) => console.error(`${config.name}: ${err.message}`))
-  }, calcGameTicks(3000))
+      .catch((err) => log.error(err.message))
+  }, ms2ticks(3000))
 })
