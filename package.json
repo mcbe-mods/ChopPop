@@ -6,22 +6,33 @@
   "license": "MIT",
   "scripts": {
     "dev": "mcbe-create dev",
-    "devsync": "mcbe-create dev --sync",
+    "dev:sync": "mcbe-create dev --sync",
     "build": "mcbe-create build",
     "lint": "eslint",
     "lint:fix": "eslint --fix"
   },
   "dependencies": {
-    "@mcbe-mods/discover": "1.0.0-beta.3",
-    "@mcbe-mods/log": "1.0.0-beta.3",
-    "@mcbe-mods/rpc": "1.0.0-beta.3",
-    "@mcbe-mods/utils": "1.0.0-beta.3",
+    "@mcbe-mods/discover": "1.0.0-beta.4",
+    "@mcbe-mods/log": "1.0.0-beta.4",
+    "@mcbe-mods/rpc": "1.0.0-beta.4",
+    "@mcbe-mods/utils": "1.0.0-beta.4",
     "@minecraft/server": "1.18.0",
     "@minecraft/vanilla-data": "^1.26.21"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^9.0.0",
-    "@mcbe-mods/create": "0.0.1-beta.3",
+    "@mcbe-mods/create": "^0.0.1-beta.7",
     "eslint": "^10.3.0"
+  },
+  "mcbe": {
+    "uuids": {
+      "behaviorPack": "73274707-42ba-4d40-a109-24ae8c0482fb",
+      "module": "d738d86b-6ed5-4dcc-8167-3d125763a226"
+    },
+    "minEngineVersion": [
+      1,
+      21,
+      80
+    ]
   }
 }

@@ -9,17 +9,17 @@ importers:
   .:
     dependencies:
       '@mcbe-mods/discover':
-        specifier: 1.0.0-beta.3
-        version: 1.0.0-beta.3(@minecraft/server@1.18.0(@minecraft/vanilla-data@1.26.21))
+        specifier: 1.0.0-beta.4
+        version: 1.0.0-beta.4(@minecraft/server@1.18.0(@minecraft/vanilla-data@1.26.21))
       '@mcbe-mods/log':
-        specifier: 1.0.0-beta.3
-        version: 1.0.0-beta.3
+        specifier: 1.0.0-beta.4
+        version: 1.0.0-beta.4
       '@mcbe-mods/rpc':
-        specifier: 1.0.0-beta.3
-        version: 1.0.0-beta.3(@minecraft/server@1.18.0(@minecraft/vanilla-data@1.26.21))
+        specifier: 1.0.0-beta.4
+        version: 1.0.0-beta.4(@minecraft/server@1.18.0(@minecraft/vanilla-data@1.26.21))
       '@mcbe-mods/utils':
-        specifier: 1.0.0-beta.3
-        version: 1.0.0-beta.3(@minecraft/server@1.18.0(@minecraft/vanilla-data@1.26.21))
+        specifier: 1.0.0-beta.4
+        version: 1.0.0-beta.4
       '@minecraft/server':
         specifier: 1.18.0
         version: 1.18.0(@minecraft/vanilla-data@1.26.21)
@@ -31,8 +31,8 @@ importers:
         specifier: ^9.0.0
         version: 9.0.0(@typescript-eslint/rule-tester@8.60.1(eslint@10.4.1)(typescript@6.0.3))(@typescript-eslint/typescript-estree@8.60.1(typescript@6.0.3))(@typescript-eslint/utils@8.60.1(eslint@10.4.1)(typescript@6.0.3))(@vue/compiler-sfc@3.5.35)(eslint@10.4.1)(typescript@6.0.3)
       '@mcbe-mods/create':
-        specifier: 0.0.1-beta.3
-        version: 0.0.1-beta.3(@minecraft/vanilla-data@1.26.21)(yaml@2.9.0)
+        specifier: ^0.0.1-beta.7
+        version: 0.0.1-beta.7(@minecraft/vanilla-data@1.26.21)(yaml@2.9.0)
       eslint:
         specifier: ^10.3.0
         version: 10.4.1
@@ -246,36 +246,34 @@ packages:
   '@jridgewell/sourcemap-codec@1.5.5':
     resolution: {integrity: sha512-cYQ9310grqxueWbl+WuIUIaiUaDcj7WOq5fVhEljNVgRfOUhY9fy2zTvfoqWsnebh8Sl70VScFbICvJnLKB0Og==}
 
-  '@mcbe-mods/bedrock-url@1.0.0-beta.3':
-    resolution: {integrity: sha512-is9oqYQyelLD4Im1qXEgaLi3OVULiOcRc4xePt7A+SQJI6C8MQIJWZQiQ855rFrrBp1pv7JWkvoxtiAL/0UKrg==}
+  '@mcbe-mods/bedrock-url@1.0.0-beta.4':
+    resolution: {integrity: sha512-erB/C4I2DQumwa709KvP7DV8LMdmYLngI2M6EkT7p1MFOsIl7G6aQC3NOVwbDtODFphjX2TcoM4qGWSabBK0iw==}
 
-  '@mcbe-mods/create@0.0.1-beta.3':
-    resolution: {integrity: sha512-DiGY4hY7BmKgui9Ukn/knVeMxUlry5lXcq9src0/FbLmP2OmfAkyF+Fl3tOUD+LU0ZeKUVa6+tHq5n1ZVbDEHg==}
+  '@mcbe-mods/create@0.0.1-beta.7':
+    resolution: {integrity: sha512-0DoCCDlFonumZWxQv0DNMDG468oTdHDGkytyR1Vx75f90z3aAspw2MuH3zSb0qxEQD74IITl0YQvofxpAaNnIg==}
     engines: {node: '>=20.19.0'}
     hasBin: true
 
-  '@mcbe-mods/discover@1.0.0-beta.3':
-    resolution: {integrity: sha512-cRS7UVjBSGecj5Lru+BottzElZJc7EphlJdRbi8Tf6IegJJsszZaZTBWqFfzF9DJi5TEkFzzeniD/qng0cNPUg==}
+  '@mcbe-mods/discover@1.0.0-beta.4':
+    resolution: {integrity: sha512-qwFnuTVZQd6882IaIIO0Ov+HCJZmt1XQt2tKWHae5eveqSwlhvcjNxS2yHmv/UV8ynkYN62/M8Jgmsz07I2qsA==}
     peerDependencies:
       '@minecraft/server': '>=1.18.0'
 
-  '@mcbe-mods/log@1.0.0-beta.3':
-    resolution: {integrity: sha512-FBrTE97nNzDc6AW/Op+PdTcXShCdTMHjdWLkIe8Ft7ssgQ4Jp96rk6ayVYqIIUBBThG0hg89QEpMbMtZUcxMYQ==}
+  '@mcbe-mods/log@1.0.0-beta.4':
+    resolution: {integrity: sha512-SfN7E73vyX87aUrhmwTZ5V2T29zUreqzTM3LGopt/38CFszXE/v3HQZGBSgFuH8ry7RgLsbSigPv1fXndUV9hg==}
 
-  '@mcbe-mods/protocol@1.0.0-beta.3':
-    resolution: {integrity: sha512-gU64tKKuLnFTigaSvF41M154VywAb73Ik9a6pSftRdtbPCURiRxxbPSQcUlwdRDBeOv81Lktj81e7iaXgEROsg==}
+  '@mcbe-mods/protocol@1.0.0-beta.4':
+    resolution: {integrity: sha512-wjcta92+gTQQm0wczj0z8PcvK/K7jN2gaJwEUGRHGrGwL9VelUlpoX38Ltchoa4EJcuqzMEQY305Atuth1pP4g==}
     peerDependencies:
       '@minecraft/server': '>=1.18.0'
 
-  '@mcbe-mods/rpc@1.0.0-beta.3':
-    resolution: {integrity: sha512-L6ZxiRLjMiEzkwuXLo7HITE+Aq5Dp6KGmbc8yMaicdAYlL1vhbIj0yW/X7e3FEmlBdq0DL1BqubH60el4GrmiA==}
+  '@mcbe-mods/rpc@1.0.0-beta.4':
+    resolution: {integrity: sha512-Awmjm0zS4RczOXUmWvhUrm3Ac1ClNOBJXGvltUEJm0bswTygtta3qXQCVg+L1X1Z+mG9Prl4F934z0kRUH7MLg==}
     peerDependencies:
       '@minecraft/server': '>=1.18.0'
 
-  '@mcbe-mods/utils@1.0.0-beta.3':
-    resolution: {integrity: sha512-cqrzi9zuBs34DYS2X3tbJsV9v91nf3cH/Uqa+rYtWMZ10ouyKKwOse3rIg/iV7tnK2SleQccE0CYoaQVHW6Y6Q==}
-    peerDependencies:
-      '@minecraft/server': '>=1.18.0'
+  '@mcbe-mods/utils@1.0.0-beta.4':
+    resolution: {integrity: sha512-ycbVUIcJCSgSyOeoPn2o1TZOqigFHbagGXT5U+QSSOoUDU3jr+DEkZFRKpMdYcKzfUXRDkQJQTlguOuQalNTbg==}
 
   '@minecraft/common@1.3.0':
     resolution: {integrity: sha512-GLT8USFhvEyeTTFHZAgszbrnoT007hmXmK+aO4l+2A1up9/zwZ+4e8R8F0KcKrCWDjLEqkOJtPow0hQCcNJ++Q==}
@@ -2201,9 +2199,9 @@ snapshots:
 
   '@jridgewell/sourcemap-codec@1.5.5': {}
 
-  '@mcbe-mods/bedrock-url@1.0.0-beta.3': {}
+  '@mcbe-mods/bedrock-url@1.0.0-beta.4': {}
 
-  '@mcbe-mods/create@0.0.1-beta.3(@minecraft/vanilla-data@1.26.21)(yaml@2.9.0)':
+  '@mcbe-mods/create@0.0.1-beta.7(@minecraft/vanilla-data@1.26.21)(yaml@2.9.0)':
     dependencies:
       '@clack/prompts': 0.9.1
       '@minecraft/server': 1.18.0(@minecraft/vanilla-data@1.26.21)
@@ -2232,35 +2230,33 @@ snapshots:
       - tsx
       - yaml
 
-  '@mcbe-mods/discover@1.0.0-beta.3(@minecraft/server@1.18.0(@minecraft/vanilla-data@1.26.21))':
+  '@mcbe-mods/discover@1.0.0-beta.4(@minecraft/server@1.18.0(@minecraft/vanilla-data@1.26.21))':
     dependencies:
-      '@mcbe-mods/bedrock-url': 1.0.0-beta.3
-      '@mcbe-mods/log': 1.0.0-beta.3
-      '@mcbe-mods/protocol': 1.0.0-beta.3(@minecraft/server@1.18.0(@minecraft/vanilla-data@1.26.21))
-      '@mcbe-mods/utils': 1.0.0-beta.3(@minecraft/server@1.18.0(@minecraft/vanilla-data@1.26.21))
+      '@mcbe-mods/bedrock-url': 1.0.0-beta.4
+      '@mcbe-mods/log': 1.0.0-beta.4
+      '@mcbe-mods/protocol': 1.0.0-beta.4(@minecraft/server@1.18.0(@minecraft/vanilla-data@1.26.21))
+      '@mcbe-mods/utils': 1.0.0-beta.4
       '@minecraft/server': 1.18.0(@minecraft/vanilla-data@1.26.21)
 
-  '@mcbe-mods/log@1.0.0-beta.3':
+  '@mcbe-mods/log@1.0.0-beta.4':
     dependencies:
       tinydateformat2: 1.0.0
 
-  '@mcbe-mods/protocol@1.0.0-beta.3(@minecraft/server@1.18.0(@minecraft/vanilla-data@1.26.21))':
+  '@mcbe-mods/protocol@1.0.0-beta.4(@minecraft/server@1.18.0(@minecraft/vanilla-data@1.26.21))':
     dependencies:
-      '@mcbe-mods/bedrock-url': 1.0.0-beta.3
-      '@mcbe-mods/log': 1.0.0-beta.3
+      '@mcbe-mods/bedrock-url': 1.0.0-beta.4
+      '@mcbe-mods/log': 1.0.0-beta.4
       '@minecraft/server': 1.18.0(@minecraft/vanilla-data@1.26.21)
 
-  '@mcbe-mods/rpc@1.0.0-beta.3(@minecraft/server@1.18.0(@minecraft/vanilla-data@1.26.21))':
+  '@mcbe-mods/rpc@1.0.0-beta.4(@minecraft/server@1.18.0(@minecraft/vanilla-data@1.26.21))':
     dependencies:
-      '@mcbe-mods/bedrock-url': 1.0.0-beta.3
-      '@mcbe-mods/log': 1.0.0-beta.3
-      '@mcbe-mods/protocol': 1.0.0-beta.3(@minecraft/server@1.18.0(@minecraft/vanilla-data@1.26.21))
-      '@mcbe-mods/utils': 1.0.0-beta.3(@minecraft/server@1.18.0(@minecraft/vanilla-data@1.26.21))
+      '@mcbe-mods/bedrock-url': 1.0.0-beta.4
+      '@mcbe-mods/log': 1.0.0-beta.4
+      '@mcbe-mods/protocol': 1.0.0-beta.4(@minecraft/server@1.18.0(@minecraft/vanilla-data@1.26.21))
+      '@mcbe-mods/utils': 1.0.0-beta.4
       '@minecraft/server': 1.18.0(@minecraft/vanilla-data@1.26.21)
 
-  '@mcbe-mods/utils@1.0.0-beta.3(@minecraft/server@1.18.0(@minecraft/vanilla-data@1.26.21))':
-    dependencies:
-      '@minecraft/server': 1.18.0(@minecraft/vanilla-data@1.26.21)
+  '@mcbe-mods/utils@1.0.0-beta.4': {}
 
   '@minecraft/common@1.3.0': {}
 
